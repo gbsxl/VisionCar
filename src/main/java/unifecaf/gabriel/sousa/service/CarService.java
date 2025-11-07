@@ -3,11 +3,9 @@ package unifecaf.gabriel.sousa.service;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import unifecaf.gabriel.sousa.entity.Car;
-import unifecaf.gabriel.sousa.enums.Brand;
 import unifecaf.gabriel.sousa.repository.CarRespository;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -28,7 +26,7 @@ public class CarService {
     }
 
     public List<Car> getCarsByBrand(String brand) {
-        return carRespository.findByBrand(Brand.valueOf(brand.toUpperCase()));
+        return carRespository.findByBrand_Name(brand);
     }
 
     public List<Car> getCarsByPriceRange(Double minimumPrice, Double maximumPrice) {

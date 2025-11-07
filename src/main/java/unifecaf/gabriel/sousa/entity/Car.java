@@ -1,11 +1,8 @@
 package unifecaf.gabriel.sousa.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
-import org.springframework.orm.jpa.vendor.EclipseLinkJpaVendorAdapter;
-import unifecaf.gabriel.sousa.enums.Brand;
 import unifecaf.gabriel.sousa.enums.Color;
 
 @Entity
@@ -20,8 +17,8 @@ public class Car {
     @Column(name = "model", length = 200, nullable = false)
     private String model;
 
-    @Column(name = "brand")
-    @Enumerated(EnumType.STRING)
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "brand_id", nullable = false)
     private Brand brand;
 
     @Column(name = "color")
